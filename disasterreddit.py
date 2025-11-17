@@ -241,22 +241,24 @@ def convert_df_to_csv(df):
 
 def get_reddit_incidents_for_metro(metro_area, keywords, lookback_hours=12, limit=50):
     """
-    Fetch recent Reddit posts from metro-specific subreddits that match incident keywords.
-    Returns a list of article-like dicts: {title, snippet, source, date, link}.
+    Fetch recent Reddit posts from metro-specific subreddits and filter by incident keywords.
+    Uses /new.json (not /search.json) to avoid 403 blocks.
+    
+    Returns a list of article-like dicts:
+        {title, snippet, source, date, link}
     """
     import requests
-    import time
+    from datetime import datetime, timedelta
 
     subreddits = METRO_REDDIT_MAP.get(metro_area)
     if not subreddits:
-        # No mapping for this metro
         return []
 
-    # Build the keyword query string
-    keyword_query = " OR ".join(keywords)
+    # Normalize keywords to lowercase for matching
+    keywords_lower = [k.lower() for k in keywords]
 
     headers = {
-        "User-Agent": "incident-watcher-bot/0.1 by yourusername"
+        "User-Agent": "incident-watcher-bot/0.1 (by u/yourusername)"
     }
 
     cutoff = datetime.utcnow() - timedelta(hours=lookback_hours)
@@ -265,12 +267,10 @@ def get_reddit_incidents_for_metro(metro_area, keywords, lookback_hours=12, limi
     incidents = []
 
     for sub in subreddits:
-        url = f"https://www.reddit.com/r/{sub}/search.json"
+        url = f"https://www.reddit.com/r/{sub}/new.json"
         params = {
-            "q": keyword_query,
-            "restrict_sr": "on",
-            "sort": "new",
-            "limit": min(limit, 50)
+            "limit": min(limit * 2, 100),  # fetch more, filter down
+            "raw_json": 1
         }
 
         try:
@@ -289,24 +289,30 @@ def get_reddit_incidents_for_metro(metro_area, keywords, lookback_hours=12, limi
             if created_utc is None:
                 continue
 
-            # Filter by lookback window
+            # Time filter
             if created_utc < cutoff_ts:
                 continue
 
+            title = post.get("title", "Reddit Post") or ""
+            body = post.get("selftext", "") or ""
+            text_for_match = (title + " " + body).lower()
+
+            # Keyword filter
+            if not any(k in text_for_match for k in keywords_lower):
+                continue
+
             created_dt = datetime.utcfromtimestamp(created_utc).isoformat() + "Z"
-            title = post.get("title", "Reddit Post")
-            body = post.get("selftext", "")
             permalink = post.get("permalink", "")
 
             incidents.append({
                 "title": title,
-                "snippet": body if body else title,  # if no body, at least use title
+                "snippet": body if body else title,
                 "source": f"Reddit/r/{sub}",
                 "date": created_dt,
                 "link": f"https://www.reddit.com{permalink}"
             })
 
-    # Sort by date desc, then cap to limit
+    # Sort newest first and cap to limit
     def parse_dt(x):
         try:
             return datetime.fromisoformat(x.replace("Z", ""))
@@ -515,4 +521,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
