@@ -60,260 +60,58 @@ TOP_50_US_METROS = [
 
 # Map some metros to relevant Reddit subreddits for "social" mode
 METRO_REDDIT_MAP = {
-
-    # 1 — New York Metro
-    "New York, NY": [
-        "nyc", "AskNYC", "newyorkcity", "NewYork"
-    ],
-
-    # 2 — Los Angeles Metro
-    "Los Angeles, CA": [
-        "LosAngeles", "AskLosAngeles", "LAlist"
-    ],
-
-    # 3 — Chicago Metro
-    "Chicago, IL": [
-        "chicago"
-    ],
-
-    # 4 — Dallas–Fort Worth Metro
-    "Dallas-Fort Worth, TX": [
-        "Dallas", "FortWorth", "DFW"
-    ],
-
-    # 5 — Houston Metro
-    "Houston, TX": [
-        "houston"
-    ],
-
-    # 6 — Washington DC Metro
-    "Washington, DC": [
-        "washingtondc", "nova", "maryland", "DMV"
-    ],
-
-    # 7 — Miami Metro
-    "Miami, FL": [
-        "Miami", "MiamiBeach", "southflorida"
-    ],
-
-    # 8 — Philadelphia Metro
-    "Philadelphia, PA": [
-        "philadelphia", "philly"
-    ],
-
-    # 9 — Atlanta Metro
-    "Atlanta, GA": [
-        "Atlanta"
-    ],
-
-    # 10 — Phoenix Metro
-    "Phoenix, AZ": [
-        "phoenix", "AskPhoenix"
-    ],
-
-    # 11 — Boston Metro
-    "Boston, MA": [
-        "boston"
-    ],
-
-    # 12 — San Francisco Metro
-    "San Francisco, CA": [
-        "sanfrancisco", "bayarea", "AskSF"
-    ],
-
-    # 13 — Riverside–San Bernardino Metro (Inland Empire)
-    "Riverside-San Bernardino, CA": [
-        "InlandEmpire", "RiversideCA", "SanBernardino"
-    ],
-
-    # 14 — Detroit Metro
-    "Detroit, MI": [
-        "Detroit"
-    ],
-
-    # 15 — Seattle Metro
-    "Seattle, WA": [
-        "Seattle"
-    ],
-
-    # 16 — Minneapolis–St. Paul Metro
-    "Minneapolis-St. Paul, MN": [
-        "minneapolis", "SaintPaul", "TwinCities"
-    ],
-
-    # 17 — San Diego Metro
-    "San Diego, CA": [
-        "sandiego"
-    ],
-
-    # 18 — Tampa Metro
-    "Tampa, FL": [
-        "tampa", "TampaBay"
-    ],
-
-    # 19 — Denver Metro
-    "Denver, CO": [
-        "Denver", "Colorado"
-    ],
-
-    # 20 — St. Louis Metro
-    "St. Louis, MO": [
-        "StLouis"
-    ],
-
-    # 21 — Baltimore Metro
-    "Baltimore, MD": [
-        "baltimore"
-    ],
-
-    # 22 — Charlotte Metro
-    "Charlotte, NC": [
-        "Charlotte", "CLT"
-    ],
-
-    # 23 — Orlando Metro
-    "Orlando, FL": [
-        "orlando"
-    ],
-
-    # 24 — San Antonio Metro
-    "San Antonio, TX": [
-        "sanantonio"
-    ],
-
-    # 25 — Portland Metro
-    "Portland, OR": [
-        "Portland"
-    ],
-
-    # 26 — Sacramento Metro
-    "Sacramento, CA": [
-        "Sacramento"
-    ],
-
-    # 27 — Austin Metro
-    "Austin, TX": [
-        "Austin"
-    ],
-
-    # 28 — Pittsburgh Metro
-    "Pittsburgh, PA": [
-        "pittsburgh"
-    ],
-
-    # 29 — Las Vegas Metro
-    "Las Vegas, NV": [
-        "lasvegas"
-    ],
-
-    # 30 — Cincinnati Metro
-    "Cincinnati, OH": [
-        "cincinnati"
-    ],
-
-    # 31 — Kansas City Metro
-    "Kansas City, MO": [
-        "kansascity"
-    ],
-
-    # 32 — Columbus Metro
-    "Columbus, OH": [
-        "Columbus"
-    ],
-
-    # 33 — Indianapolis Metro
-    "Indianapolis, IN": [
-        "indianapolis"
-    ],
-
-    # 34 — Cleveland Metro
-    "Cleveland, OH": [
-        "Cleveland"
-    ],
-
-    # 35 — San Jose Metro
-    "San Jose, CA": [
-        "SanJose", "bayarea"
-    ],
-
-    # 36 — Nashville Metro
-    "Nashville, TN": [
-        "nashville"
-    ],
-
-    # 37 — Virginia Beach–Norfolk Metro
-    "Virginia Beach, VA": [
-        "virginiabeach", "norfolk", "hamptonroads"
-    ],
-
-    # 38 — Providence Metro
-    "Providence, RI": [
-        "rhodeisland", "Providence"
-    ],
-
-    # 39 — Milwaukee Metro
-    "Milwaukee, WI": [
-        "milwaukee"
-    ],
-
-    # 40 — Jacksonville Metro
-    "Jacksonville, FL": [
-        "jacksonville"
-    ],
-
-    # 41 — Oklahoma City Metro
-    "Oklahoma City, OK": [
-        "oklahomacity", "okc"
-    ],
-
-    # 42 — Raleigh Metro
-    "Raleigh, NC": [
-        "raleigh", "triangle"
-    ],
-
-    # 43 — Memphis Metro
-    "Memphis, TN": [
-        "memphis"
-    ],
-
-    # 44 — Richmond Metro
-    "Richmond, VA": [
-        "richmond"
-    ],
-
-    # 45 — New Orleans Metro
-    "New Orleans, LA": [
-        "neworleans", "NOLA"
-    ],
-
-    # 46 — Louisville Metro
-    "Louisville, KY": [
-        "louisville"
-    ],
-
-    # 47 — Salt Lake City Metro
-    "Salt Lake City, UT": [
-        "SaltLakeCity", "Utah"
-    ],
-
-    # 48 — Hartford Metro
-    "Hartford, CT": [
-        "Connecticut", "Hartford"
-    ],
-
-    # 49 — Buffalo Metro
-    "Buffalo, NY": [
-        "buffalo"
-    ],
-
-    # 50 — Birmingham Metro
-    "Birmingham, AL": [
-        "birmingham"
-    ],
+    "New York, NY": ["nyc", "AskNYC", "newyorkcity", "NewYork"],
+    "Los Angeles, CA": ["LosAngeles", "AskLosAngeles", "LAlist"],
+    "Chicago, IL": ["chicago"],
+    "Dallas-Fort Worth, TX": ["Dallas", "FortWorth", "DFW"],
+    "Houston, TX": ["houston"],
+    "Washington, DC": ["washingtondc", "nova", "maryland", "DMV"],
+    "Miami, FL": ["Miami", "MiamiBeach", "southflorida"],
+    "Philadelphia, PA": ["philadelphia", "philly"],
+    "Atlanta, GA": ["Atlanta"],
+    "Phoenix, AZ": ["phoenix", "AskPhoenix"],
+    "Boston, MA": ["boston"],
+    "San Francisco, CA": ["sanfrancisco", "bayarea", "AskSF"],
+    "Riverside-San Bernardino, CA": ["InlandEmpire", "RiversideCA", "SanBernardino"],
+    "Detroit, MI": ["Detroit"],
+    "Seattle, WA": ["Seattle"],
+    "Minneapolis-St. Paul, MN": ["minneapolis", "SaintPaul", "TwinCities"],
+    "San Diego, CA": ["sandiego"],
+    "Tampa, FL": ["tampa", "TampaBay"],
+    "Denver, CO": ["Denver", "Colorado"],
+    "St. Louis, MO": ["StLouis"],
+    "Baltimore, MD": ["baltimore"],
+    "Charlotte, NC": ["Charlotte", "CLT"],
+    "Orlando, FL": ["orlando"],
+    "San Antonio, TX": ["sanantonio"],
+    "Portland, OR": ["Portland"],
+    "Sacramento, CA": ["Sacramento"],
+    "Austin, TX": ["Austin"],
+    "Pittsburgh, PA": ["pittsburgh"],
+    "Las Vegas, NV": ["lasvegas"],
+    "Cincinnati, OH": ["cincinnati"],
+    "Kansas City, MO": ["kansascity"],
+    "Columbus, OH": ["Columbus"],
+    "Indianapolis, IN": ["indianapolis"],
+    "Cleveland, OH": ["Cleveland"],
+    "San Jose, CA": ["SanJose", "bayarea"],
+    "Nashville, TN": ["nashville"],
+    "Virginia Beach, VA": ["virginiabeach", "norfolk", "hamptonroads"],
+    "Providence, RI": ["rhodeisland", "Providence"],
+    "Milwaukee, WI": ["milwaukee"],
+    "Jacksonville, FL": ["jacksonville"],
+    "Oklahoma City, OK": ["oklahomacity", "okc"],
+    "Raleigh, NC": ["raleigh", "triangle"],
+    "Memphis, TN": ["memphis"],
+    "Richmond, VA": ["richmond"],
+    "New Orleans, LA": ["neworleans", "NOLA"],
+    "Louisville, KY": ["louisville"],
+    "Salt Lake City, UT": ["SaltLakeCity", "Utah"],
+    "Hartford, CT": ["Connecticut", "Hartford"],
+    "Buffalo, NY": ["buffalo"],
+    "Birmingham, AL": ["birmingham"]
 }
 
-    # Add more as you like
-}
 
 
 # --- Helper Functions: NEWS (SerpAPI) ---
@@ -717,3 +515,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
